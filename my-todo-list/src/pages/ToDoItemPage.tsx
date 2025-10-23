@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { ToDoItem } from "../models/ToDoItem";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
-interface ComponentProps {
-  todoList: ToDoItem[];
-}
-
-export const ToDoItemPage = ({ todoList }: ComponentProps) => {
+export const ToDoItemPage = () => {
+  const todoList = useSelector((state: RootState) => state.todoList.todo);
   const { id } = useParams();
   const nav = useNavigate();
 

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { ToDoItem } from "../../models/ToDoItem";
-import classes from "./ListItem.module.scss";
+import classes from "./ViewListItem.module.scss";
 
-export const ListItem = ({ todoItem }: { todoItem: ToDoItem }) => {
+export const ViewListItem = ({ todoItem }: { todoItem: ToDoItem }) => {
   return (
     <>
       <Link
