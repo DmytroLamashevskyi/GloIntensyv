@@ -1,7 +1,15 @@
 import { useState } from "react";
-import "./Form.scss";
 import { useDispatch } from "react-redux";
 import { createAction } from "../../features/todoList";
+import {
+  FormBlock,
+  FormButton,
+  FormInput,
+  FormLabel,
+  FormWrapper,
+} from "./Form.styled";
+
+import plusIcon from "../../assets/images/plus.png";
 
 export const Form = () => {
   const [text, setText] = useState<string>();
@@ -16,17 +24,17 @@ export const Form = () => {
   };
 
   return (
-    <div className="form-wrapper">
-      <form action="#" onSubmit={formSubmit}>
-        <label>
-          <input
+    <FormWrapper>
+      <FormBlock action="#" onSubmit={formSubmit}>
+        <FormLabel>
+          <FormInput
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-          <button></button>
-        </label>
-      </form>
-    </div>
+          <FormButton icon={plusIcon} />
+        </FormLabel>
+      </FormBlock>
+    </FormWrapper>
   );
 };

@@ -1,18 +1,21 @@
-import { Link } from "react-router-dom";
-import styles from "../assets/scss/NotFoundPage.module.scss";
 import whereGif from "../assets/images/Where.gif";
+import {
+  ErrorPageBackLink,
+  ErrorPageContainer,
+  ErrorPageImage,
+  ErrorPageInfoBlock,
+  ErrorPageText,
+} from "../styles/NotFoundPage.styled";
 
 export const NotFoundPage = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.pageinfo}>
-        <div className={styles.header}>404</div>
-        <Link to="/" className={styles.link}>
-          ← Back to Home
-        </Link>
-      </div>
+    <ErrorPageContainer>
+      <ErrorPageInfoBlock>
+        <ErrorPageText>404</ErrorPageText>
+        <ErrorPageBackLink to="/">← Back to Home</ErrorPageBackLink>
+      </ErrorPageInfoBlock>
 
-      <img className={styles.image} src={whereGif} alt="404 gif" />
-    </div>
+      <ErrorPageImage imageRendering={whereGif} />
+    </ErrorPageContainer>
   );
 };
