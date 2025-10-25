@@ -1,5 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import todoReducer from "./features/todoList";
+import themeReducer from "./features/themeList";
 
 const saveToLocalStore = (state: RootState) => {
   try {
@@ -23,6 +24,7 @@ const loadFromLocalStore = () => {
 
 const rootReducer = combineReducers({
   todoList: todoReducer,
+  themeList: themeReducer,
 });
 
 export const store = configureStore({

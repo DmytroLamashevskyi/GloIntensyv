@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { ToDoItem } from "../models/ToDoItem";
 import { toast } from "react-toastify";
+import { v4 as uuid } from "uuid";
 
 export interface ToDoState {
   todo: ToDoItem[];
@@ -10,12 +11,12 @@ export interface ToDoState {
 const initialState: ToDoState = {
   todo: [
     {
-      id: 0,
+      id: uuid(),
       text: "Init First",
       isDone: false,
     },
     {
-      id: 1,
+      id: uuid(),
       text: "Init Done",
       isDone: true,
     },
@@ -28,7 +29,7 @@ export const todoSlice = createSlice({
   reducers: {
     createAction: (state, action: PayloadAction<string>) => {
       const newTask: ToDoItem = {
-        id: state.todo.length,
+        id: uuid(),
         text: action.payload,
         isDone: false,
       };
